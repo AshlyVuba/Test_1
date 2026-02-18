@@ -57,4 +57,4 @@ Produce a receipt line exactly **25 characters wide**.
 ---
 
 ## 📚 Theory Questions
-Answer the questions found in `Theory_questions.txt` inside the `Answers.txt` file. Focus on explaining the "why" behind the logic.
+Answer the questions found in  inside the `[text](Theory_questions.txt)` file.[text](Answers.txt) Focus on explaining the "why" behind the logic.
