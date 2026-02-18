@@ -54,4 +54,4 @@ Description: Develop a formatting tool that produces a line of text for a receip
 =============================
 THEORY QUESTIONS
 =============================
-Refer to ./[text](Theory_questions.txt) and answer in file
+Refer to [text](Theory_questions.txt) and answer in file
