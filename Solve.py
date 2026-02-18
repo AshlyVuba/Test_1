@@ -20,7 +20,7 @@ def is_palindrome(str):
 # ==========
 # TODO : Question 4
 # ==========
-def repeat_script(arg_1,n):
+def repeat_script(arg_):
     pass
 # Data Structures
 # ==========

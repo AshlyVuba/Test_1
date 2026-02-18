@@ -24,7 +24,7 @@ Topic: Command Line Commands
 
 Question Name: Repeater Script
 
-Description: Design a script meant to be executed via the terminal that accepts a piece of text and a number. The script should output that text repeated a specific number of times as a single continuous string.
+Description: Design a script meant to be executed via the terminal that accepts a piece of text and a number. The script should output that text repeated a specific number of times, as a single continuous string.
 
 Question 5
 Topic: Data Structures
