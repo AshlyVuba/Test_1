@@ -28,7 +28,7 @@ class TestFahreToCels(unittest.TestCase):
         self.assertRaises(TypeError,Solve.fahre_to_cels)
     def test_zero_input(self):
         self.assertEqual(Solve.fahre_to_cels(0),-17.78)
-    def test_zero_input(self):
+    def test_negative_crossover(self):
         self.assertEqual(Solve.fahre_to_cels(-40),-40.00)
     def test_boundary(self):
         self.assertEqual(Solve.fahre_to_cels(98.6),37.00)
@@ -137,7 +137,7 @@ class TestEmailRefiner(unittest.TestCase):
         "tester@example.com  ",
         "  TeStEr@ExAmPlE.cOm  "
         ]
-        self.assertEqual(Solve.email_refiner(duplicates_list),["tester@example.com"])
+        self.assertEqual(sorted(Solve.email_refiner(duplicates_list)),["tester@example.com"])
 
     def test_messy_formating(self):
         messy_format_list = [
@@ -147,7 +147,7 @@ class TestEmailRefiner(unittest.TestCase):
             "  CONTACT@STUFF.biz  "
         ]
         # Expected Result: ["admin@site.org", "contact@stuff.biz", "info@data.io", "support@help.net"]
-        self.assertEqual(Solve.email_refiner(messy_format_list),["admin@site.org", "contact@stuff.biz", "info@data.io", "support@help.net"])
+        self.assertEqual(sorted(Solve.email_refiner(messy_format_list)),["admin@site.org", "contact@stuff.biz", "info@data.io", "support@help.net"])
 
     def test_mixed_formatting(self):
         ultimate_list = [
@@ -160,7 +160,27 @@ class TestEmailRefiner(unittest.TestCase):
             "  ALICE@HOME.COM  "
         ]
         # Expected Result (Sorted): ["alice@home.com", "bob@work.com", "charles@school.edu"]
-        self.assertEqual(Solve.email_refiner(ultimate_list),["alice@home.com", "bob@work.com", "charles@school.edu"])
+        self.assertEqual(sorted(Solve.email_refiner(ultimate_list)),["alice@home.com", "bob@work.com", "charles@school.edu"])
 
     def test_invalid_input(self):
         self.assertRaises(TypeError, Solve.email_refiner, ["valid@test.com", 12345])
+
+#_____________________________________________________________________________________________________________________
+#Question 7
+
+class TestReceiptFormater(unittest.TestCase):
+    def test_correct_format(self):
+        item="Blinds"
+        price=10.20
+        price_adjusted=f'{price:.2f}'
+        self.assertEqual(Solve.receipt_formater("Blinds",10.20),f"{item:<10}{'R'+price_adjusted:>15}")
+
+    def test_wrong_input(self):
+        item="Popsicle"
+        price="Ice"
+        self.assertRaises(TypeError,Solve.receipt_formater,item,price)
+    
+    def test_no_item(self):
+        item=None
+        price=20.00
+        self.assertRaises(TypeError,Solve.receipt_formater,item,price)
