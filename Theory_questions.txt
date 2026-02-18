@@ -1,0 +1,8 @@
+Question 1
+
+How does sys.argv module collect input in the terminal compared to argparse?
+
+Question 2
+
+Referring to your answer in Question 1, which one would be more ideal in which situation and describe why that is the case.
+
