@@ -1,3 +1,24 @@
+===================================================
+INSTRUCTIONS:
+====================================================
+There are a total of 7 coding questions and 7 theory questions
+
+There are two test suites included for this test, to run these tests you can use the following commands
+
+`python3 -m unittest tests/test_practice_unittest.py`
+
+or
+
+`python3 -m pytest tests/test_practice_pytest.py`
+
+
+The file `Theory_questions.txt` contains the questions for the theory question.
+Please answer them in the `Answers.txt` file
+
+
+The README.md , on the coding section contains the coding questions.
+Please answer them in the `solve.py` file
+
 =====================================================
 CODING QUESTIONS SECTION
 =====================================================
