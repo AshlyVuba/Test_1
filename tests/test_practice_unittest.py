@@ -123,3 +123,44 @@ class TestFindTheCheapest(unittest.TestCase):
     def test_invalid_input(self):
         inventory_6=[3,"^","poop","lopo",7,9]
         self.assertRaises(TypeError,Solve.find_the_cheapest,inventory_6)
+
+#_____________________________________________________________________________________________________________________
+#Question 6
+
+class TestEmailRefiner(unittest.TestCase):
+    def test_correct_email(self):
+        duplicates_list = [
+        "tester@example.com",
+        "TESTER@EXAMPLE.COM",
+        "Tester@Example.com",
+        "  tester@example.com",
+        "tester@example.com  ",
+        "  TeStEr@ExAmPlE.cOm  "
+        ]
+        self.assertEqual(Solve.email_refiner(duplicates_list),["tester@example.com"])
+
+    def test_messy_formating(self):
+        messy_format_list = [
+            "  admin@site.org", 
+            "SUPPORT@help.net  ", 
+            "\tinfo@data.io\n", 
+            "  CONTACT@STUFF.biz  "
+        ]
+        # Expected Result: ["admin@site.org", "contact@stuff.biz", "info@data.io", "support@help.net"]
+        self.assertEqual(Solve.email_refiner(messy_format_list),["admin@site.org", "contact@stuff.biz", "info@data.io", "support@help.net"])
+
+    def test_mixed_formatting(self):
+        ultimate_list = [
+            "bob@work.com",
+            "  bob@work.com",
+            "ALICE@home.com",
+            "alice@home.com  ",
+            "BOB@WORK.COM",
+            "charles@school.edu",
+            "  ALICE@HOME.COM  "
+        ]
+        # Expected Result (Sorted): ["alice@home.com", "bob@work.com", "charles@school.edu"]
+        self.assertEqual(Solve.email_refiner(ultimate_list),["alice@home.com", "bob@work.com", "charles@school.edu"])
+
+    def test_invalid_input(self):
+        self.assertRaises(TypeError, Solve.email_refiner, ["valid@test.com", 12345])
