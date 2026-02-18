@@ -168,19 +168,43 @@ class TestEmailRefiner(unittest.TestCase):
 #_____________________________________________________________________________________________________________________
 #Question 7
 
-class TestReceiptFormater(unittest.TestCase):
+class TestReceiptFormatter(unittest.TestCase):
     def test_correct_format(self):
         item="Blinds"
         price=10.20
         price_adjusted=f'{price:.2f}'
-        self.assertEqual(Solve.receipt_formater("Blinds",10.20),f"{item:<10}{'R'+price_adjusted:>15}")
+        self.assertEqual(Solve.receipt_formatter("Blinds",10.20),f"{item:<10}{'R'+price_adjusted:>15}")
 
     def test_wrong_input(self):
         item="Popsicle"
         price="Ice"
-        self.assertRaises(TypeError,Solve.receipt_formater,item,price)
+        self.assertRaises(TypeError,Solve.receipt_formatter,item,price)
     
     def test_no_item(self):
         item=None
         price=20.00
-        self.assertRaises(TypeError,Solve.receipt_formater,item,price)
+        self.assertRaises(TypeError,Solve.receipt_formatter,item,price)
+
+    def test_long_name(self):
+        item = "Extra Large Pepperoni Pizza" # Way more than 10 chars
+        price = 99.99
+        result = Solve.receipt_formater(item, price)
+        # The README says the output MUST be a fixed width of 25.
+        self.assertEqual(len(result), 25)
+
+    def test_rounding_up(self):
+        item = "Apple"
+        price = 0.559
+        price_adjusted = "R0.56" # Rounded up
+        expected = f"{item:<10}{price_adjusted:>15}"
+        self.assertEqual(Solve.receipt_formater(item, price), expected)
+
+    def test_zero_price(self):
+        item = "Promo"
+        price = 0.0
+        price_adjusted = "R0.00"
+        expected = f"{item:<10}{price_adjusted:>15}"
+        self.assertEqual(Solve.receipt_formater(item, price), expected)
+
+    def test_negative_price(self):
+        self.assertRaises(ValueError, Solve.receipt_formater, "Discount", -5.00)
