@@ -41,7 +41,7 @@ Topic: Data Manipulation
 
 Question Name: Email Sanitizer
 
-Description: Build a routine that takes a raw username and a domain name and combines them into a standard email format. The process must clean up any accidental whitespace at the beginning or end of the inputs and ensure the final output is entirely in lowercase.
+Description: Build a routine that accepts a list of raw email strings. The process must sanitize the data by removing accidental whitespace at the beginning or end of each entry and converting all text to lowercase. Finally, the routine must remove any duplicate entries and return a unique list of clean emails.
 
 Question 7
 Topic: String Formatting
