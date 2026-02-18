@@ -1,3 +1,6 @@
+=====================================================
+CODING QUESTIONS SECTION
+=====================================================
 Question 1
 Topic: Loops
 
@@ -46,3 +49,9 @@ Topic: String Formatting
 Question Name: Receipt Aligner
 
 Description: Develop a formatting tool that produces a line of text for a receipt. The output must be a fixed width of 25 characters, with the item name pushed to the far left and the price (prefixed with a currency symbol and showing two decimal places) pushed to the far right.
+
+
+=============================
+THEORY QUESTIONS
+=============================
+Refer to ./[text](Theory_questions.txt) and answer in file
