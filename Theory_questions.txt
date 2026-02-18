@@ -6,3 +6,22 @@ Question 2
 
 Referring to your answer in Question 1, which one would be more ideal in which situation and describe why that is the case.
 
+Question 3
+
+What is the difference between a TypeError and a ValueError, when is each one normally raised?
+
+Question 4:
+
+What is a function and when do we normally need to use functions?
+
+Question 5:
+
+What is the difference between a data structure and a data type?
+
+Question 6:
+
+What is the difference between a for loop, while loop ?
+
+Question 7:
+
+What is a nested loop and when are they often beneficial?
